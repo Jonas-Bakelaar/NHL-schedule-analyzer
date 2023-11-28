@@ -8,7 +8,6 @@ def getScheduleForTeam(teamName):
         games = []
 
         for row in schedule:
-            # print(', '.join(row))
             if teamName in row:
                 games.append(row)
         
@@ -21,9 +20,6 @@ def getNumberOfBackToBacks(schedules, team):
             dates.append(datetime.datetime.strptime(games[0], "%Y-%m-%d"))
         except:
             dates.append(datetime.datetime.strptime(games[0], "%m-%d-%Y"))
-
-        # elif datetime.datetime.strptime(games[0], "%m-%d-%Y"):
-        #     dates.append(datetime.datetime.strptime(games[0], "%m-%d-%Y"))
     
     count = 0
     bothAtHome = 0
@@ -34,6 +30,8 @@ def getNumberOfBackToBacks(schedules, team):
         if (index+1) < 82:
             if dates[index+1] == dateComparison:
                 count = count+1
+
+                # Some extra context if you'd like to make the output more busy
                 # print("b2b for", team)
                 # print(schedules[team][index])
                 # print(schedules[team][index+1])
